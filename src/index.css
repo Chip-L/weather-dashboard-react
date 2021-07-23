@@ -1,6 +1,8 @@
+* {
+  margin: 0;
+  font-family: "Oxygen", sans-serif;
+}
+
 body {
   background-color: #dff4fb;
-  font-family: "Oxygen", sans-serif;
-
-  margin: 0;
 }
