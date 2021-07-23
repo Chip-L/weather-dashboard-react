@@ -1,4 +1,5 @@
 import Header from "./components/Header/Header";
+import Search from "./components/Search/Search";
 
 const styles = {
   content: {
@@ -11,7 +12,11 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="content" style={styles.content}></div>
+      <div className="content" style={styles.content}>
+        <aside>
+          <Search />
+        </aside>
+      </div>
     </div>
   );
 }
