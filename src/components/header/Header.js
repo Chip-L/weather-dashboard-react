@@ -5,13 +5,16 @@ const styles = {
     display: "flex",
     justifyContent: "center",
 
+    padding: ".5rem .75rem",
     background: "linear-gradient(to right, blue, navy)",
     color: "azure",
 
     maxWidth: "100%",
   },
   h1: {
-    fontWeight: 700,
+    fontSize: "2.5rem",
+    fontWeight: 500,
+    marginBottom: ".5rem",
   },
 };
 

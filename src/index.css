@@ -1,6 +1,7 @@
 * {
   margin: 0;
   font-family: "Oxygen", sans-serif;
+  box-sizing: border-box;
 }
 
 body {
