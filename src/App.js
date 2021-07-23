@@ -5,6 +5,7 @@ const styles = {
   content: {
     maxWidth: "1400px",
     margin: "auto",
+    padding: "1rem",
   },
 };
 
