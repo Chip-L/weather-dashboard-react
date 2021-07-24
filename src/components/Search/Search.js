@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+import { useStoreContext } from "../../store/GlobalState";
+import { GET_SEARCH_CITY } from "../../store/actions";
+
 function Search() {
   const styles = {
     container: {
@@ -40,11 +43,19 @@ function Search() {
     },
   };
 
+  const [, dispatch] = useStoreContext();
+
   const [city, setCity] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(city);
+
+    if (city) {
+      dispatch({
+        type: GET_SEARCH_CITY,
+        payload: city,
+      });
+    }
     setCity("");
   };
 

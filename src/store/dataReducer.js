@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 import {
-  SET_SEARCH_CITY,
+  GET_SEARCH_CITY,
   SET_CITY,
   SET_DATA,
   SET_IS_LOADING,
@@ -9,7 +9,7 @@ import {
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    case SET_SEARCH_CITY:
+    case GET_SEARCH_CITY:
       console.log("userReducer: SET_SEARCH_CITY");
       break;
     case SET_CITY:

@@ -1,5 +1,5 @@
 /** used in the search component to initially find the city */
-export const SET_SEARCH_CITY = "SET_SEARCH_CITY";
+export const GET_SEARCH_CITY = "SET_SEARCH_CITY";
 
 /** used in the CityList component to search a stored city */
 export const SET_CITY = "SET_CITY";
