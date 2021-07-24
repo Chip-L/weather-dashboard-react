@@ -1,3 +1,4 @@
+import CityList from "./components/CityList/CityList";
 import CurrentWeather from "./components/CurrentWeather/CurrentWeather";
 import Header from "./components/Header/Header";
 import Search from "./components/Search/Search";
@@ -30,6 +31,7 @@ function App() {
         <div className="content" style={styles.content}>
           <aside style={styles.aside}>
             <Search />
+            <CityList />
           </aside>
           <section style={styles.section}>
             <CurrentWeather />
