@@ -20,7 +20,7 @@ export function getUVIStyle(curUvi) {
     fontSize: "1.25rem",
   };
 
-  console.log(curUvi);
+  // console.log(curUvi);
 
   if (curUvi <= 2) {
     uviStyle.backgroundColor = "green";

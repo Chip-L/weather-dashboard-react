@@ -23,7 +23,7 @@ export const reducer = (state, action) => {
         city: action.payload,
       };
     case SET_CITY_LIST:
-      console.log("userReducer: SET_CITY_LIST:", action.cityList);
+      // console.log("userReducer: SET_CITY_LIST:", action.cityList);
       return {
         ...state,
         cityList: action.cityList,

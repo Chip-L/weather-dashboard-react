@@ -34,7 +34,7 @@ function CityList() {
 
     // get the list from local storage
     const storedList = JSON.parse(localStorage.getItem(storageKey)) || [];
-    console.log(storedList);
+    // console.log(storedList);
 
     if (city.name) {
       // get the index of the city to see if it is already in the list and remove it if it is

@@ -69,7 +69,7 @@ function CurrentWeather() {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
 
         const objWeather = {
           isSet: true,
