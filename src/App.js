@@ -1,5 +1,6 @@
 import Header from "./components/Header/Header";
 import Search from "./components/Search/Search";
+import { StoreProvider } from "./store/GlobalState";
 
 const styles = {
   content: {
@@ -14,9 +15,11 @@ function App() {
     <div className="App">
       <Header />
       <div className="content" style={styles.content}>
-        <aside>
-          <Search />
-        </aside>
+        <StoreProvider>
+          <aside>
+            <Search />
+          </aside>
+        </StoreProvider>
       </div>
     </div>
   );
