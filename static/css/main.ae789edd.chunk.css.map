@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/index.css","webpack://src/App.css"],"names":[],"mappings":"AAAA,KACE,wBAAyB,CACzB,+BAAiC,CAEjC,QACF,CCLA,KACE,gBAAiB,CACjB,WACF","file":"main.ae789edd.chunk.css","sourcesContent":["body {\n  background-color: #dff4fb;\n  font-family: \"Oxygen\", sans-serif;\n\n  margin: 0;\n}\n",".App {\r\n  max-width: 1400px;\r\n  margin: auto;\r\n}\r\n"]}
