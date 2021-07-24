@@ -12,28 +12,25 @@ export function formatDate(date) {
 }
 
 export function getUVIStyle(curUvi) {
+  const uviStyle = {
+    borderRadius: ".25rem",
+    padding: ".25rem .5rem",
+    fontSize: "1.25rem",
+  };
+
   if (curUvi <= 2) {
-    return {
-      backgroundColor: "green",
-      color: "azure",
-    };
+    uviStyle.backgroundColor = "green";
+    uviStyle.color = "azure";
   } else if (curUvi <= 5) {
-    return {
-      backgroundColor: "yellow",
-    };
+    uviStyle.backgroundColor = "yellow";
   } else if (curUvi <= 7) {
-    return {
-      backgroundColor: "orange",
-    };
+    uviStyle.backgroundColor = "orange";
   } else if (curUvi <= 10) {
-    return {
-      backgroundColor: "red",
-      color: "azure",
-    };
+    uviStyle.backgroundColor = "red";
+    uviStyle.color = "azure";
   } else {
-    return {
-      backgroundColor: "violet",
-      color: "azure",
-    };
+    uviStyle.backgroundColor = "violet";
+    uviStyle.color = "azure";
   }
+  return uviStyle;
 }

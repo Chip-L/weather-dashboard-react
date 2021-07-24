@@ -10,12 +10,23 @@ const degreeSymbol = String.fromCharCode(176);
 function CurrentWeather() {
   const styles = {
     div: {
+      display: "grid",
+      gap: "1rem",
+      padding: "1rem",
+
       border: "1px solid black",
+      fontSize: "1.5rem",
     },
     city: {
-      fontSize: "1rem",
+      fontSize: "2rem",
+      fontWeight: 700,
+      marginBottom: ".5rem",
+    },
+    img: {
+      verticalAlign: "middle",
     },
   };
+
   const [{ city, isLoading, isError, weather }, dispatch] = useStoreContext();
 
   const [uviStyle, setUVIStyle] = useState({});
@@ -74,17 +85,25 @@ function CurrentWeather() {
       {isError && <div>{isError.message}</div>}
 
       {weather.isSet && (
-        <div style={styles.div}>
-          <p style={styles.city}>
-            {city.name} ({weather.asOfDate}){" "}
-            <img src={weather.icon.src} alt={weather.icon.alt} />
-          </p>
-          <p>Temp: {weather.curTemp + degreeSymbol} F</p>
-          <p>Humidity: {weather.curHumidity}%</p>
-          <p>
-            UV Index: <span style={uviStyle}>{weather.curUvi}</span>
-          </p>
-        </div>
+        <>
+          <div style={styles.div}>
+            <p style={styles.city}>
+              {city.name} ({weather.asOfDate}){" "}
+              <img
+                style={styles.img}
+                src={weather.icon.src}
+                alt={weather.icon.alt}
+              />
+            </p>
+            <p>Temp: {weather.curTemp + degreeSymbol} F</p>
+            <p>Wind: {weather.curWindSpd} MPH</p>
+            <p>Humidity: {weather.curHumidity}%</p>
+            <p>
+              UV Index: <span style={uviStyle}>{weather.curUvi}</span>
+            </p>
+          </div>
+          {/* add fiveDayForecast component call here */}
+        </>
       )}
     </>
   );
