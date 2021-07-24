@@ -8,8 +8,8 @@ const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useDataReducer({
     city: {
       name: "",
-      lat: "",
-      lon: "",
+      latitude: "",
+      longitude: "",
     },
 
     searchCity: "",
@@ -17,7 +17,7 @@ const StoreProvider = ({ value = [], ...props }) => {
     isLoading: false,
     isError: null,
 
-    data: {
+    weather: {
       icon: {
         src: "",
         alt: "",
