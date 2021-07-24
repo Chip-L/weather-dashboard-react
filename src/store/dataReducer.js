@@ -10,10 +10,12 @@ import {
 export const reducer = (state, action) => {
   switch (action.type) {
     case GET_SEARCH_CITY:
-      console.log("userReducer: GET_SEARCH_CITY");
-      break;
+      return {
+        ...state,
+        searchCity: action.city,
+      };
     case SET_CITY:
-      console.log("userReducer: SET_SEARCH_CITY:", action.payload);
+      // console.log("userReducer: SET_SEARCH_CITY:", action.payload);
       return {
         ...state,
         isLoading: false,

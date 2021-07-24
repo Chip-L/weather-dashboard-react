@@ -18,7 +18,7 @@ export const getSearchCity = (city) => {
   };
 };
 
-export const setCity = () => {
+export const setCity = (city) => {
   return {
     type: SET_CITY,
     payload: city,

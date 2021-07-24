@@ -1,7 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import { OPEN_WEATHER_API_KEY } from "../../config/MyConfig";
 
 import { useStoreContext } from "../../store/GlobalState";
-import { GET_SEARCH_CITY } from "../../store/actions";
+import {
+  getSearchCity,
+  setCity,
+  setIsError,
+  setIsLoading,
+} from "../../store/actions";
 
 function Search() {
   const styles = {
@@ -43,21 +50,62 @@ function Search() {
     },
   };
 
-  const [, dispatch] = useStoreContext();
+  const [{ searchCity }, dispatch] = useStoreContext();
 
-  const [city, setCity] = useState("");
+  const [cityInput, setCityInput] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (city) {
-      dispatch({
-        type: GET_SEARCH_CITY,
-        payload: city,
-      });
+    if (cityInput) {
+      dispatch(getSearchCity(cityInput));
     }
-    setCity("");
+    setCityInput("");
   };
+
+  useEffect(() => {
+    // if no search city - skip this
+    if (!searchCity) return;
+
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&units=imperial&appid=${OPEN_WEATHER_API_KEY}`;
+
+    // this should control if the search is terminated before the results are back - I don't think I'm using it correct though
+    // TODO: fix abort controller
+    const controller = new AbortController();
+
+    // set loading to true (these will be reset in the other dispatches)
+    dispatch(setIsLoading());
+
+    // get the data
+    fetch(url, { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) {
+          let message = "";
+          if (response.status === 404) {
+            message = `Unable to find ${searchCity}`;
+          } else {
+            message = `An error has occurred: ${response.status}`;
+          }
+          throw new Error(message);
+        }
+
+        return response.json();
+      })
+      .then((data) => {
+        const objCity = {
+          name: data.name,
+          latitude: data.coord.lat,
+          longitude: data.coord.lon,
+        };
+
+        dispatch(setCity(objCity));
+      })
+      .catch((err) => {
+        dispatch(setIsError(err));
+      });
+    // reset search city to "" so we don't keep trying to execute this block
+    dispatch(getSearchCity(""));
+  }, [searchCity]);
 
   return (
     <section className="search" style={styles.container}>
@@ -67,9 +115,9 @@ function Search() {
           placeholder="City (no state)"
           type="text"
           style={styles.input}
-          value={city}
+          value={cityInput}
           onChange={(e) => {
-            setCity(e.target.value);
+            setCityInput(e.target.value);
           }}
         />
         <button type="submit" style={styles.button}>
