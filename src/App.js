@@ -5,7 +5,7 @@ import { StoreProvider } from "./store/GlobalState";
 
 const styles = {
   content: {
-    maxWidth: "1400px",
+    maxWidth: "1320px",
     margin: "auto",
     padding: "1rem",
 
