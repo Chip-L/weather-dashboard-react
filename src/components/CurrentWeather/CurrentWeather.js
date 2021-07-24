@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { OPEN_WEATHER_API_KEY } from "../../config/MyConfig";
 
-import { formatDate, getUVIStyle } from "../../utils/helpers";
+import { formatDate, getUVIStyle, degreeSymbol } from "../../utils/helpers";
 
 import { useStoreContext } from "../../store/GlobalState";
 import { setIsError, setIsLoading, setWeather } from "../../store/actions";
-const degreeSymbol = String.fromCharCode(176);
+import Forecast from "../Forecast/Forecast";
 
 function CurrentWeather() {
   const styles = {
@@ -25,6 +25,21 @@ function CurrentWeather() {
     img: {
       verticalAlign: "middle",
     },
+    fdfHeading: {
+      fontSize: "1.75rem",
+      fontWeight: 700,
+      margin: ".5rem",
+    },
+    fdfDiv: {
+      display: "grid",
+      gap: "1rem",
+      padding: "1rem",
+    },
+    fdfRow: {
+      display: "flex",
+      justifyContent: "space-between",
+      padding: "0 1rem",
+    },
   };
 
   const [{ city, isLoading, isError, weather }, dispatch] = useStoreContext();
@@ -36,7 +51,6 @@ function CurrentWeather() {
     if (city.name === "") return;
 
     const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${city.latitude}&lon=${city.longitude}&exclude=minutely,hourly&units=imperial&appid=${OPEN_WEATHER_API_KEY}`;
-    console.log(url);
 
     // this should control if the search is terminated before the results are back - I don't think I'm using it correct though
     // TODO: fix abort controller
@@ -72,7 +86,7 @@ function CurrentWeather() {
         };
 
         dispatch(setWeather(objWeather));
-        setUVIStyle(getUVIStyle(weather.curUvi));
+        setUVIStyle(getUVIStyle(objWeather.curUvi));
       })
       .catch((err) => {
         dispatch(setIsError(err));
@@ -102,7 +116,14 @@ function CurrentWeather() {
               UV Index: <span style={uviStyle}>{weather.curUvi}</span>
             </p>
           </div>
-          {/* add fiveDayForecast component call here */}
+          <div style={styles.fdfDiv}>
+            <p style={styles.fdfHeading}>5 day forecast</p>
+            <div style={styles.fdfRow}>
+              {weather.fiveDayForecast.map((forecast) => (
+                <Forecast forecast={forecast} key={forecast.dt} />
+              ))}
+            </div>
+          </div>
         </>
       )}
     </>

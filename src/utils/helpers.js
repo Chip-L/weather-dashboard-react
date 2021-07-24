@@ -1,10 +1,12 @@
+export const degreeSymbol = String.fromCharCode(176);
+
 export function formatTime(date) {
   return date.toLocaleTimeString();
 }
 
 // The custom helper 'formatDate' takes in a timestamp
 export function formatDate(date) {
-  // for some resaon the date comes in in seconds, not milliseconds...
+  // for some reason the date comes in in seconds, not milliseconds...
   const newDate = new Date(date * 1000);
   return `${
     newDate.getMonth() + 1
@@ -17,6 +19,8 @@ export function getUVIStyle(curUvi) {
     padding: ".25rem .5rem",
     fontSize: "1.25rem",
   };
+
+  console.log(curUvi);
 
   if (curUvi <= 2) {
     uviStyle.backgroundColor = "green";
