@@ -12,8 +12,8 @@
 /build
 
 # misc
+#MyConfig.js
 .DS_Store
-MyConfig.js
 .vscode
 .env
 .env.local
