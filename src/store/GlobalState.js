@@ -18,6 +18,7 @@ const StoreProvider = ({ value = [], ...props }) => {
     isError: null,
 
     weather: {
+      isSet: false,
       icon: {
         src: "",
         alt: "",

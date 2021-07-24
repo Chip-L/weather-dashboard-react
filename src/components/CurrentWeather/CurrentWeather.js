@@ -9,6 +9,9 @@ const degreeSymbol = String.fromCharCode(176);
 
 function CurrentWeather() {
   const styles = {
+    div: {
+      border: "1px solid black",
+    },
     city: {
       fontSize: "1rem",
     },
@@ -44,6 +47,7 @@ function CurrentWeather() {
         console.log(data);
 
         const objWeather = {
+          isSet: true,
           icon: {
             src: `https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`,
             alt: data.current.weather[0].description,
@@ -69,8 +73,8 @@ function CurrentWeather() {
       {isLoading && <div>Loading...</div>}
       {isError && <div>{isError.message}</div>}
 
-      {weather && (
-        <div>
+      {weather.isSet && (
+        <div style={styles.div}>
           <p style={styles.city}>
             {city.name} ({weather.asOfDate}){" "}
             <img src={weather.icon.src} alt={weather.icon.alt} />

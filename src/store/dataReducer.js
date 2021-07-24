@@ -25,11 +25,14 @@ export const reducer = (state, action) => {
       return {
         ...state,
         isLoading: true,
+        isError: null,
+        weather: { isSet: false },
       };
     case SET_WEATHER:
       return {
         ...state,
         isLoading: false,
+        isError: null,
         weather: action.payload,
       };
     case SET_ERROR:
@@ -37,6 +40,7 @@ export const reducer = (state, action) => {
         ...state,
         isLoading: false,
         isError: action.payload,
+        weather: { isSet: false },
       };
 
     default:
