@@ -5,6 +5,7 @@ import {
   SET_WEATHER,
   SET_IS_LOADING,
   SET_ERROR,
+  SET_CITY_LIST,
 } from "./actions";
 
 export const reducer = (state, action) => {
@@ -20,6 +21,12 @@ export const reducer = (state, action) => {
         ...state,
         isLoading: false,
         city: action.payload,
+      };
+    case SET_CITY_LIST:
+      console.log("userReducer: SET_CITY_LIST:", action.cityList);
+      return {
+        ...state,
+        cityList: action.cityList,
       };
     case SET_IS_LOADING:
       return {

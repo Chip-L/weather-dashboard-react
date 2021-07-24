@@ -1,8 +1,11 @@
 /** used in the search component to initially find the city */
-export const GET_SEARCH_CITY = "SET_SEARCH_CITY";
+export const GET_SEARCH_CITY = "GET_SEARCH_CITY";
 
-/** used in the CityList component to search a stored city */
+/** used in the CityList and search components to search a stored city (triggers fetch weather and set city list) */
 export const SET_CITY = "SET_CITY";
+
+/** used in search component to store the city list */
+export const SET_CITY_LIST = "SET_CITY_LIST";
 
 /** used to update the state of the weather (loading, data, errors) */
 export const SET_WEATHER = "SET_WEATHER";
@@ -22,6 +25,13 @@ export const setCity = (city) => {
   return {
     type: SET_CITY,
     payload: city,
+  };
+};
+
+export const setCityList = (cityList) => {
+  return {
+    type: SET_CITY_LIST,
+    cityList: cityList,
   };
 };
 
