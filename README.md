@@ -93,4 +93,7 @@ Working Page: [https://chip-l.github.io/weatherDashboard/]
 
 ## Credits
 
-Wikimedia Foundation. (2021, March 13). Ultraviolet index. Wikipedia. https://en.wikipedia.org/wiki/Ultraviolet_index#Index_usage.
+- Wikimedia Foundation. (2021, March 13). Ultraviolet index. Wikipedia. https://en.wikipedia.org/wiki/Ultraviolet_index#Index_usage.
+- [OpenWeather.org](https://openweathermap.org/)
+- [The Net Ninja's _Full Modern React Tutorial_](https://www.youtube.com/playlist?list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d)
+- [Fetching data from an API using React/Redux](https://dev.to/markusclaus/fetching-data-from-an-api-using-reactredux-55ao)
