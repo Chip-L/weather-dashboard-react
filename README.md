@@ -114,22 +114,35 @@ THEN I am again presented with current and future conditions for that city (does
 
 ## Usage
 
-Completed site's code: [https://github.com/Chip-L/weatherDashboard]
+Completed site's code: [https://github.com/Chip-L/weather-dashboard-react]
 
-Working Page: [https://chip-l.github.io/weatherDashboard/]
+Working Page: [https://chip-l.github.io/weather-dashboard-react]
 
-![Screenshot: ](./assets/misc/screenshot.jpg)
+Desktop:
+
+![Screenshot: ](./misc/screenshot.jpg)
+
+Mobile:
+
+![Mobile Screenshot:](./misc/screenshot.m.jpg)
 
 ## Technologies Used
 
 - [React](https://reactjs.org/)
 - [gh-pages](https://www.npmjs.com/package/gh-pages)
 - [dotenv](https://www.npmjs.com/package/dotenv)
-- [axios](https://www.npmjs.com/package/axios)?
+- [styled-components](https://styled-components.com/)?
 
 ## Credits
 
 - Wikimedia Foundation. (2021, March 13). Ultraviolet index. Wikipedia. https://en.wikipedia.org/wiki/Ultraviolet_index#Index_usage.
+
 - [OpenWeather.org](https://openweathermap.org/)
-- [The Net Ninja's _Full Modern React Tutorial_](https://www.youtube.com/playlist?list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d)
-- [Fetching data from an API using React/Redux](https://dev.to/markusclaus/fetching-data-from-an-api-using-reactredux-55ao)
+
+- Pelling, S. (2021, February 21). Full modern react tutorial. YouTube. https://www.youtube.com/playlist?list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d.
+
+- Claus, M. (2019, April 8). Fetching data from an API using REACT/REDUX. DEV Community. https://dev.to/markusclaus/fetching-data-from-an-api-using-reactredux-55ao.
+
+- S., L. (2015, February 5). Styled Components vs. Css Stylesheets. Stream RSS. https://getstream.io/blog/styled-components-vs-css-stylesheets/.
+
+-Claus, M. (2019, April 8). Fetching data from an api USING REACT/REDUX. DEV Community. https://dev.to/markusclaus/fetching-data-from-an-api-using-reactredux-55ao.
