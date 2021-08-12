@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 
 import { OPEN_WEATHER_API_KEY } from "../../config/MyConfig";
 
@@ -10,46 +11,48 @@ import {
   setIsLoading,
 } from "../../store/actions";
 
-function Search() {
-  const styles = {
-    container: {
-      margin: ".5rem",
-      borderBottom: "2px solid black",
-    },
-    form: {
-      display: "grid",
-      gridGap: ".5rem",
-    },
-    label: {
-      fontSize: "1.75rem",
-      fontWeight: 700,
-      marginBottom: ".5rem",
-    },
-    input: {
-      display: "block",
-      // marginTop: "1rem",
-      padding: ".375rem .75rem",
-      fontSize: "1rem",
-      fontWeight: 400,
-      lineHeight: 1.5,
-      border: "1px solid #ced4da",
-      borderRadius: ".25rem",
-    },
-    button: {
-      background: "#5098e6",
-      color: "#c7dfe8",
-      marginBottom: "1rem",
-      padding: ".375rem .75rem",
-      fontSize: "1rem",
-      fontWeight: 400,
-      lineHeight: "1.5rem",
-      border: "1px solid transparent",
-      borderRadius: ".25rem",
-      transition:
-        "color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out",
-    },
-  };
+const Container = styled.section`
+  margin: 0.5rem;
+  border-bottom: 2px solid black;
+`;
 
+const Form = styled.form`
+  display: grid;
+  gap: 0.5rem;
+`;
+
+const Label = styled.label`
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+`;
+
+const Input = styled.input`
+  display: block;
+  /* margin-top: 1rem; */
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+`;
+
+const Button = styled.button`
+  background: #5098e6;
+  color: #c7dfe8;
+  margin-bottom: 1rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+`;
+
+function Search() {
   const [{ searchCity }, dispatch] = useStoreContext();
 
   const [cityInput, setCityInput] = useState("");
@@ -108,23 +111,20 @@ function Search() {
   }, [searchCity]);
 
   return (
-    <section className="search" style={styles.container}>
-      <form style={styles.form} onSubmit={handleSubmit}>
-        <label style={styles.label}>Search for a City:</label>
-        <input
+    <Container className="search">
+      <Form onSubmit={handleSubmit}>
+        <Label>Search for a City:</Label>
+        <Input
           placeholder="City (no state)"
           type="text"
-          style={styles.input}
           value={cityInput}
           onChange={(e) => {
             setCityInput(e.target.value);
           }}
         />
-        <button type="submit" style={styles.button}>
-          Search
-        </button>
-      </form>
-    </section>
+        <Button type="submit">Search</Button>
+      </Form>
+    </Container>
   );
 }
 

@@ -31,6 +31,8 @@ const StoreProvider = ({ value = [], ...props }) => {
     },
 
     cityList: [],
+
+    uviStyle: {},
   });
 
   return <Provider value={[state, dispatch]} {...props} />;

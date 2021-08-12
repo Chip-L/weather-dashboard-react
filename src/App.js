@@ -1,40 +1,46 @@
-import CurrentWeather from "./components/CurrentWeather/CurrentWeather";
-import Header from "./components/Header/Header";
-import Search from "./components/Search/Search";
+import styled from "styled-components";
+
 import { StoreProvider } from "./store/GlobalState";
 
-const styles = {
-  content: {
-    maxWidth: "1400px",
-    margin: "auto",
-    padding: "1rem",
+import Header from "./components/Header/Header";
+import Search from "./components/Search/Search";
+import CityList from "./components/CityList/CityList";
+import Weather from "./components/Weather/Weather";
 
-    display: "grid",
-    gridTemplateColumns: "auto auto auto auto auto auto",
-    gridGap: "1rem",
-  },
-  aside: {
-    gridColumn: 1,
-  },
-  section: {
-    gridColumn: "2 / span 5",
-    // border: "1px solid black",
-  },
-};
+const Content = styled.div`
+  max-width: 1320px;
+  margin: auto;
+  padding: 1rem;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    gap: 1rem;
+
+    aside {
+      grid-column: 1;
+    }
+
+    section {
+      grid-column: 2 / span 5;
+    }
+  }
+`;
 
 function App() {
   return (
     <div className="App">
       <Header />
       <StoreProvider>
-        <div className="content" style={styles.content}>
-          <aside style={styles.aside}>
+        <Content>
+          <aside>
             <Search />
+            <CityList />
           </aside>
-          <section style={styles.section}>
-            <CurrentWeather />
+          <section>
+            <Weather />
           </section>
-        </div>
+        </Content>
       </StoreProvider>
     </div>
   );

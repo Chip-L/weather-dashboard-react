@@ -5,6 +5,8 @@ import {
   SET_WEATHER,
   SET_IS_LOADING,
   SET_ERROR,
+  SET_CITY_LIST,
+  SET_UVI_STYLE,
 } from "./actions";
 
 export const reducer = (state, action) => {
@@ -20,6 +22,12 @@ export const reducer = (state, action) => {
         ...state,
         isLoading: false,
         city: action.payload,
+      };
+    case SET_CITY_LIST:
+      // console.log("userReducer: SET_CITY_LIST:", action.cityList);
+      return {
+        ...state,
+        cityList: action.cityList,
       };
     case SET_IS_LOADING:
       return {
@@ -41,6 +49,11 @@ export const reducer = (state, action) => {
         isLoading: false,
         isError: action.payload,
         weather: { isSet: false },
+      };
+    case SET_UVI_STYLE:
+      return {
+        ...state,
+        uviStyle: action.payload,
       };
 
     default:
