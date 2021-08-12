@@ -1,28 +1,29 @@
 import { useEffect } from "react";
+import styled from "styled-components";
+
 import { setCity, setCityList } from "../../store/actions";
 import { useStoreContext } from "../../store/GlobalState";
 
-function CityList() {
-  const styles = {
-    container: {
-      display: "grid",
-      gridGap: ".5rem",
-      margin: ".5rem",
-      marginTop: "1rem",
-    },
-    button: {
-      fontSize: "1rem",
-      fontWeight: 400,
-      lineHeight: "1.5rem",
-      color: "#fff",
-      backgroundColor: "#6c757d",
-      border: "1px solid #6c757d",
-      borderRadius: ".25rem",
-      marginBottom: "1rem",
-      padding: ".375rem .75rem",
-    },
-  };
+const Container = styled.div`
+  display: grid;
+  gap: 0.5rem;
+  margin: 0.5rem;
+  margin-top: 1rem;
+`;
 
+const Button = styled.button`
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  color: #fff;
+  background-color: #6c757d;
+  border: 1px solid #6c757d;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+  padding: 0.375rem 0.75rem;
+`;
+
+function CityList() {
   const [{ cityList, city }, dispatch] = useStoreContext();
 
   /**  Store the information of the city.
@@ -61,20 +62,19 @@ function CityList() {
   }, [city]);
 
   if (!cityList.length) {
-    return <div></div>;
+    return <Container></Container>;
   } else {
     return (
-      <div style={styles.container}>
+      <Container>
         {cityList.map((storedCity) => (
-          <button
+          <Button
             key={storedCity.name}
             onClick={() => dispatch(setCity(storedCity))}
-            style={styles.button}
           >
             {storedCity.name}
-          </button>
+          </Button>
         ))}
-      </div>
+      </Container>
     );
   }
 }
