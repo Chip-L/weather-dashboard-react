@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { degreeSymbol } from "../../utils/helpers";
 
 import { useStoreContext } from "../../store/GlobalState";
-import Forecast from "../Forecast/Forecast";
 
 const Div = styled.div`
   display: grid;
@@ -24,26 +23,8 @@ const Img = styled.img`
   vertical-align: middle;
 `;
 
-const styles = {
-  fdfHeading: {
-    fontSize: "1.75rem",
-    fontWeight: 700,
-    margin: ".5rem",
-  },
-  fdfDiv: {
-    display: "grid",
-    gap: "1rem",
-    padding: "1rem",
-  },
-  fdfRow: {
-    display: "flex",
-    justifyContent: " space-between",
-    padding: " 0 1rem",
-  },
-};
-
 function CurrentWeather() {
-  const [{ city, weather, uviStyle }, dispatch] = useStoreContext();
+  const [{ city, weather, uviStyle }] = useStoreContext();
 
   return (
     <>

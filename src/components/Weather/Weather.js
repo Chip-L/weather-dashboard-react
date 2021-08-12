@@ -12,6 +12,7 @@ import {
   setWeather,
   setUVIStyle,
 } from "../../store/actions";
+import FiveDayForecast from "../FiveDayForecast/FiveDayForecast";
 
 const Weather = () => {
   const [{ city, isLoading, isError, weather }, dispatch] = useStoreContext();
@@ -68,7 +69,12 @@ const Weather = () => {
       {isLoading && <div>Loading...</div>}
       {isError && <div>{isError.message}</div>}
 
-      {weather.isSet && <CurrentWeather />}
+      {weather.isSet && (
+        <>
+          <CurrentWeather />
+          <FiveDayForecast />
+        </>
+      )}
     </>
   );
 };
