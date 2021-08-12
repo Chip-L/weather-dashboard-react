@@ -131,7 +131,7 @@ Mobile:
 - [React](https://reactjs.org/)
 - [gh-pages](https://www.npmjs.com/package/gh-pages)
 - [dotenv](https://www.npmjs.com/package/dotenv)
-- [styled-components](https://styled-components.com/)?
+- [styled-components](https://styled-components.com/)
 
 ## Credits
 
