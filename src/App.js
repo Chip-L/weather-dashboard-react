@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-import CityList from "./components/CityList/CityList";
-import CurrentWeather from "./components/CurrentWeather/CurrentWeather";
+import { StoreProvider } from "./store/GlobalState";
+
 import Header from "./components/Header/Header";
 import Search from "./components/Search/Search";
-import { StoreProvider } from "./store/GlobalState";
+import CityList from "./components/CityList/CityList";
+import Weather from "./components/Weather/Weather";
 
 const Content = styled.div`
   max-width: 1320px;
@@ -36,7 +37,7 @@ function App() {
             <CityList />
           </Aside>
           <Section>
-            <CurrentWeather />
+            <Weather />
           </Section>
         </Content>
       </StoreProvider>

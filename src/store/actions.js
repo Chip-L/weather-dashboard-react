@@ -12,6 +12,8 @@ export const SET_WEATHER = "SET_WEATHER";
 export const SET_IS_LOADING = "SET_IS_LOADING";
 export const SET_ERROR = "SET_ERROR";
 
+export const SET_UVI_STYLE = "SET_UVI_STYLE";
+
 // The idea for action creators came from: https://dev.to/markusclaus/fetching-data-from-an-api-using-reactredux-55ao
 
 export const getSearchCity = (city) => {
@@ -52,5 +54,12 @@ export const setIsError = (err) => {
   return {
     type: SET_ERROR,
     payload: err,
+  };
+};
+
+export const setUVIStyle = (style) => {
+  return {
+    type: SET_UVI_STYLE,
+    payload: style,
   };
 };
