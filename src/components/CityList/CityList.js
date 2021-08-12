@@ -30,7 +30,7 @@ function CityList() {
    *   If it is a new city it will add it to the front of the list. If it is an old city, move it to the front of the list.
    * */
   useEffect(() => {
-    const storageKey = "weatherCityList";
+    const storageKey = "reactWeatherCityList";
     const maxInHistoryList = 10;
 
     // get the list from local storage

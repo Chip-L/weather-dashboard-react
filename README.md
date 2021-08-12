@@ -22,7 +22,9 @@ Since this is a frontend only application, I will just use GitHub pages to host 
 
 ## My Comments
 
-So I had started out working on this project after watching [The Net Ninja's _Full Modern React Tutorial_](https://www.youtube.com/playlist?list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d). I found the tutorial interesting and it worked well. He talked about hooks and how to load information from a site using simply `fetch`. In his tutorial, he was fetching information from a single site and not including parameters, so he turned the fetch command in to a hook. I thought I could do the same thing for the Weather App. Unfortunately, it didn't work like that.
+### Functionality
+
+So I had started out working on this project after watching [The Net Ninja's _Full Modern React Tutorial_](https://www.youtube.com/playlist?list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d). I found the tutorial interesting and it worked well. He talked about hooks and how to load information from a site simply using `fetch`. In his tutorial, he was fetching information from a single site and not including parameters, so he turned the fetch command in to a hook. I thought I could do the same thing for the Weather App. Unfortunately, it didn't work like that.
 
 To use a hook with the URL, the hook must be passed the URL at the time it is setup in the application. The problem I ran into was that the hook couldn't be setup like that for me, because the URL I was passing in was not predetermined. (As I think back, I might have been able to pass a state in to the hook...) I had to pass the search parameters in. I ended up following some of what he did to setup the `useEffect` hook and this allowed me to update parameters as needed.
 
@@ -42,7 +44,41 @@ To me, this made much more sense, and now when I want to getSearchCity, I can ju
 
 By using the store, I was also able to control my states better. I realize the problem we ran into on our final homework assignment (Roll for Friendship), was that we weren't controlling our state properly through the store.
 
-It took me about a day to recreate the application. I initially used inline coding because I wanted to explore the "component styling". I'm not sure this is _officially_ component styling. It is very cumbersome and not convenient at all. Plus I can't use the pseudo-classes or responsiveness. If I want' to use responsive design, I need to do a hook, base it on the screen size and then pass it around. At this point, I'm going to explore some other css options.
+### Styling
+
+It took me about a day to recreate the application. I initially used inline coding because I wanted to explore the "component styling".
+
+I started out by doing what we did in class, declaring a constant "styles" adding in the styles I wanted (JS fashion - so camel cased). and then set the style attribute to the styles._tag_. It turns out, from further research, that most people don't consider this component styling - just plain inline styling. That makes sense, because I'm just declaring the style in a variable and plugging the variable in to the attribute.
+
+I first looked at CSS as JSor CSS Modules, this is supposedly built in to React.
+
+```javascript
+import styles from "./myStyles.module.css";
+
+function App() {
+  return <div className={styles.app}>...</div>;
+}
+```
+
+I couldn't get this to work it appears that I have to configure webpack and I couldn't find a good tutorial on how to do that AND get it to work. Most of what I was finding was from 2016.
+
+I then tried to use [styled-components](https://styled-components.com/). This is a module that allows writing the style in plain CSS and assigning it to a variable. That variable then becomes the tag for the component using that variable.
+
+```javascript
+import styled from "styled-components";
+
+const Content = styled.div`
+  max-width: 1320px;
+`;
+
+function App() {
+  return <Content>...</Content>;
+}
+```
+
+This turned out to be extremely easy. I just had to import the library at the top of each page and then do the styling. This made the code more readable, because I could be more semantic in the naming conventions of the classes. This also allowed nesting of other items and media queries. This was much like how things worked when I was using React Bootstrap in the project, except that _I_ defined the component.
+
+I was able to refactor the entire app (this including breaking up some components so they were more pure) and fix the styling in about 4 hours. Now my app [mostly] matches that from the homework and is responsive to boot!
 
 ## User Story
 
