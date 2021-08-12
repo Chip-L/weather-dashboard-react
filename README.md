@@ -145,4 +145,4 @@ Mobile:
 
 - S., L. (2015, February 5). Styled Components vs. Css Stylesheets. Stream RSS. https://getstream.io/blog/styled-components-vs-css-stylesheets/.
 
--Claus, M. (2019, April 8). Fetching data from an api USING REACT/REDUX. DEV Community. https://dev.to/markusclaus/fetching-data-from-an-api-using-reactredux-55ao.
+- Khalid, Z. B. (2020, November 3). How to use CSS in React JS with examples. LearnCodeWeb. https://learncodeweb.com/react-js/how-to-use-css-in-react-js-with-examples/.
