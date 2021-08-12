@@ -17,8 +17,15 @@ const Div = styled.div`
 
 const Row = styled.div`
   display: flex;
+  flex-direction: column;
+  align-content: center;
   justify-content: space-between;
+
   padding: 0 1rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 function FiveDayForecast() {

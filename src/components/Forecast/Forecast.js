@@ -2,27 +2,27 @@ import React from "react";
 import styled from "styled-components";
 import { degreeSymbol, formatDate } from "../../utils/helpers";
 
+const Card = styled.div`
+  display: flex;
+  justify-content: center;
+
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+
+  background: #2d3e50;
+  color: azure;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.5;
+`;
+
+const Img = styled.img`
+  vertical-align: middle;
+`;
+/** this expects the prop forecast which contains the information to display for that specific forecast */
 function Forecast({ forecast }) {
-  const Card = styled.div`
-    display: flex;
-    justify-content: center;
-
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25rem;
-
-    background: #2d3e50;
-    color: azure;
-    font-size: 1rem;
-    font-weight: bold;
-    line-height: 1.5;
-  `;
-
-  const Img = styled.img`
-    vertical-align: middle;
-  `;
-
   return (
     <Card>
       <div class="content">
